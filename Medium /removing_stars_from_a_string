@@ -1,0 +1,15 @@
+class Solution:
+    def removeStars(self, s: str) -> str:
+        stack = []
+        for i in range(0, len(s)):
+            if s[i] == '*' : 
+# if * appear, we will remove the exist non-star character in the stack and not add the *
+                stack.pop() #remove the last, stack is last in first out
+            else:
+                stack.append(s[i]) #add
+        return ''.join(stack) #use join method to combine the string
+
+
+# Time complexity: Time complextity is O(n) because we iterate throguh s every character and then we either push it to the stack or pop the top character from the stack. It takes O(n) time for n characters.
+# To form the answer string, we remove all characters from the stack
+
