@@ -13,14 +13,15 @@ class Solution:
 
         queue = deque()
         queue.append(root)
-
+        # 
         while queue:
             current_level += 1
             sum_at_current_level = 0 
+        # traverse all the nodes at the current level and add to sum at current level
             for _ in range(len(queue)):
                 node = queue.popleft()
                 sum_at_current_level += node.val
-
+        # next steps ensure that all the nodes in next level are append into the deque
                 if node.left:
                     queue.append(node.left)
                 if node.right:
